@@ -1,16 +1,19 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React from 'react';
+import {View, Text, StyleSheet, Button} from 'react-native';
+import CommentList from '../components/CommentList';
 
-const PostScreen = () =>{
-    return (
-        <View>
-            <Text>
-                Welcome to post screen.
-            </Text>
-        </View>
-    )
-}
+const CommentScreen = ({navigation}) => {
+  console.log(navigation);
+  const id = navigation.getParams('id');
+  console.log(id);
 
-const styles = StyleSheet.create({})
+  return (
+    <View>
+      <CommentList />
+    </View>
+  );
+};
 
-export default PostScreen
+const styles = StyleSheet.create({});
+
+export default CommentScreen;
