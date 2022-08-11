@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {View, Text, StyleSheet, FlatList, Button} from 'react-native';
+import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {fetchPosts} from '../actions/CountActions';
 
@@ -23,16 +23,15 @@ const PostList = () => {
         renderItem={({item}) => {
           return (
             <>
-              <Text style={styles.text}>
-                {item.title} -{item.userId}
-              </Text>
-              <Text>{item.body}</Text>
-              <Button
-                title="Press"
+              <TouchableOpacity
                 onPress={() => {
                   navigation.navigate('Comment', {id: item.id});
-                }}
-              />
+                }}>
+                <Text style={styles.text}>
+                  {item.title}
+                </Text>
+              </TouchableOpacity>
+              <Text>{item.body}</Text>
             </>
           );
         }}
